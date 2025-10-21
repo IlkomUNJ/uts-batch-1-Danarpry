@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardApp() {
-    var currentScreen by remember { mutableStateOf("dashboard") }
+    var currentScreen by remember { mutableStateOf("list") }
 
     Scaffold(
         topBar = {
@@ -27,7 +27,7 @@ fun DashboardApp() {
             )
         },
         floatingActionButton = {
-            if (currentScreen == "dashboard" || currentScreen == "list") {
+            if (currentScreen == "list") {
                 FloatingActionButton(
                     onClick = {
                         currentScreen = "add"
@@ -45,13 +45,6 @@ fun DashboardApp() {
             contentAlignment = Alignment.Center
         ) {
             when (currentScreen) {
-                "dashboard" -> {
-                    Text(
-                        text = "Dashboard Kosong, Klik student roster untuk melihat siswa",
-                        style = MaterialTheme.typography.bodyLarge
-                    )
-                }
-
                 "list" -> {
                     StudentListApp(
                         headers = listOf("ID", "Nama"),

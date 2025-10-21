@@ -123,7 +123,6 @@ class StudentData {
 
         fun addStudent(student: Student) {
             studentList.add(student)
-            println("Student Registered: $student")
         }
 
         fun getAllStudents(): List<Student> = studentList
